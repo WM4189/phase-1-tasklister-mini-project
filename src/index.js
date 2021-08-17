@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-function changeDay() {
+
+
+
+function changeDay(e) {
   let select = document.querySelector('select')
   let h1 = document.getElementsByTagName('h1')
   let h2 = document.getElementsByTagName('h2')
@@ -23,6 +26,7 @@ function changeDay() {
 
 function buildToDo(todo){
   let li = document.createElement('li')
+  li.addEventListener('mouseenter', changeTextHover)
   let btn = document.createElement('button')
   btn.addEventListener('click',handleDelete)
   btn.textContent = "x"
@@ -36,6 +40,10 @@ function handleDelete(e){
   e.target.parentNode.remove()
 } 
 
+function changeTextHover(e){
+  e.target.style.color = "yellow"
+  setTimeout(() => e.target.style.color = "black", 400)
+}
 
 
 
